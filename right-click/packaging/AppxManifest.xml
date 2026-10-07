@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+ xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+ xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+ xmlns:desktop4="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4"
+ xmlns:desktop5="http://schemas.microsoft.com/appx/manifest/desktop/windows10/5"
+ xmlns:com="http://schemas.microsoft.com/appx/manifest/com/windows10"
+ xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+ IgnorableNamespaces="uap uap10 desktop4 desktop5 com rescap">
+ <Identity Name="Local.MinerURightClick" Publisher="CN=MinerURightClick" Version="1.0.0.0" ProcessorArchitecture="x64" />
+ <Properties>
+  <DisplayName>MinerU 右键识别</DisplayName>
+  <PublisherDisplayName>MinerU 右键识别工具</PublisherDisplayName>
+  <Logo>Assets\StoreLogo.png</Logo>
+  <uap10:AllowExternalContent>true</uap10:AllowExternalContent>
+ </Properties>
+ <Resources><Resource Language="zh-cn" /></Resources>
+ <Dependencies><TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.22000.0" MaxVersionTested="10.0.26200.0" /></Dependencies>
+ <Applications>
+  <Application Id="App" Executable="MinerURightClick.exe" uap10:TrustLevel="mediumIL" uap10:RuntimeBehavior="win32App">
+   <uap:VisualElements DisplayName="MinerU 右键识别" Description="通过右键快速识别文件" BackgroundColor="#172033"
+     Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" />
+   <Extensions>
+    <com:Extension Category="windows.comServer">
+     <com:ComServer>
+      <com:SurrogateServer DisplayName="MinerU 文件识别命令">
+       <com:Class Id="A118B38A-7D91-4DB1-A0A5-87C624F11B79" Path="MinerUContextMenu.dll" ThreadingModel="STA" />
+      </com:SurrogateServer>
+     </com:ComServer>
+    </com:Extension>
+    <desktop4:Extension Category="windows.fileExplorerContextMenus">
+     <desktop4:FileExplorerContextMenus>
+      <desktop5:ItemType Type="*"><desktop5:Verb Id="RecognizeWithMinerU" Clsid="A118B38A-7D91-4DB1-A0A5-87C624F11B79" /></desktop5:ItemType>
+     </desktop4:FileExplorerContextMenus>
+    </desktop4:Extension>
+   </Extensions>
+  </Application>
+ </Applications>
+ <Capabilities><rescap:Capability Name="runFullTrust" /><rescap:Capability Name="unvirtualizedResources" /></Capabilities>
+</Package>

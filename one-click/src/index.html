@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MinerU一键识别</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="topbar">
+        <div>
+          <h1>MinerU一键识别</h1>
+          <p>拖入文件，按需导出 Markdown 或 Word 并归档。</p>
+        </div>
+      </section>
+
+      <section class="layout">
+        <div class="main-panel">
+          <div id="dropZone" class="drop-zone">
+            <div class="drop-icon">+</div>
+            <h2>拖拽文件到这里</h2>
+            <p>支持 PDF、Word、PPT、Excel、图片。也可以点击选择文件。</p>
+            <button id="pickFiles" class="primary" type="button">选择文件</button>
+            <input id="fileInput" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.png,.jpg,.jpeg,.jp2,.webp,.gif,.bmp" multiple hidden />
+          </div>
+
+          <div class="queue-head">
+            <h2>识别队列</h2>
+            <div class="queue-actions">
+              <button id="clearQueue" type="button">清空</button>
+              <button id="startJobs" class="primary" type="button">开始识别</button>
+            </div>
+          </div>
+          <div id="queue" class="queue empty">
+            <div class="empty-state">还没有文件。</div>
+          </div>
+        </div>
+
+        <aside class="settings-panel">
+          <h2>设置</h2>
+          <label>
+            MinerU Token
+            <input id="token" type="password" placeholder="Bearer Token，不要带 Bearer" autocomplete="off" />
+          </label>
+          <label>
+            项目保存目录
+            <div class="path-row">
+              <input id="outputRoot" type="text" />
+              <button id="chooseOutput" type="button">选择</button>
+            </div>
+          </label>
+          <fieldset class="checks export-options">
+            <legend>导出格式</legend>
+            <label><input id="exportMarkdown" type="checkbox" checked /> Markdown（.md）</label>
+            <label><input id="exportWord" type="checkbox" /> Word（.docx）</label>
+            <p class="setting-help">可同时开启。结果保存到原文件夹，已有文件自动换名保留。</p>
+          </fieldset>
+          <label>
+            模型
+            <select id="modelVersion">
+              <option value="vlm">vlm 推荐</option>
+              <option value="pipeline">pipeline</option>
+            </select>
+          </label>
+          <label>
+            语言
+            <select id="language">
+              <option value="ch">中文</option>
+              <option value="en">英文</option>
+            </select>
+          </label>
+          <div class="checks">
+            <label><input id="isOcr" type="checkbox" /> OCR</label>
+            <label><input id="enableTable" type="checkbox" /> 表格识别</label>
+            <label><input id="enableFormula" type="checkbox" /> 公式识别</label>
+          </div>
+          <label>
+            轮询间隔（秒）
+            <input id="pollIntervalSeconds" type="number" min="5" max="120" step="1" />
+          </label>
+          <label>
+            最长等待（分钟）
+            <input id="timeoutMinutes" type="number" min="5" max="240" step="5" />
+          </label>
+          <button id="saveSettings" class="wide" type="button">保存设置</button>
+          <div id="toast" class="toast" role="status"></div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+# Dependencies and development tools
+**/node_modules/
+**/tools/
+**/.vs/
+**/bin/
+**/obj/
+/one-click/dist/
+# User settings, job cache, local signing secrets and logs
+**/settings.json
+**/settings.*.json
+**/.env
+**/.env.*
+**/.npmrc
+**/*secret*.json
+**/*credentials*.json
+**/jobs/
+**/cache/
+**/logs/
+**/reports/
+**/.backups/
+**/menu-registration.json
+**/signing-password.dpapi
+*.pfx
+*.p12
+*.key
+*.pem
+*.dpapi
+*.log
+**/run-log.txt
+# Local documents and OCR exports
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+*.jp2
+*_识别结果*.md
+**/output/
+**/outputs/
+**/exports/
+# Test/build products (right-click/dist is intentionally included)
+/right-click/tests/*.exe
+/right-click/tests/ReviewHarness/
+/right-click/tests/ReviewNativeHarness/
+/right-click/shell/Test-Shell.exe
+/right-click/packaging/identity-stage/
+/right-click/packaging/unsigned-probe-stage/
+*.pdb
+*.tmp
+*.bak
+*.zip
+.DS_Store
+Thumbs.db

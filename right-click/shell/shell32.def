@@ -1,0 +1,6 @@
+LIBRARY shell32.dll
+EXPORTS
+SHCreateItemFromParsingName
+SHCreateShellItemArrayFromShellItem
+SHCreateShellItemArrayFromIDLists
+SHParseDisplayName

@@ -1,0 +1,339 @@
+:root {
+  color-scheme: light;
+  font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+  background: #f7f7f2;
+  color: #252621;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f7f7f2;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  border: 1px solid #c7c8be;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #252621;
+  padding: 9px 13px;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: #397068;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.primary {
+  border-color: #1f6f61;
+  background: #1f6f61;
+  color: #fff;
+}
+
+.app-shell {
+  padding: 28px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+.topbar p {
+  color: #6b6d63;
+  margin-top: 6px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 18px;
+  align-items: start;
+}
+
+.main-panel,
+.settings-panel {
+  background: #ffffff;
+  border: 1px solid #dedfd6;
+  border-radius: 8px;
+}
+
+.main-panel {
+  padding: 18px;
+}
+
+.drop-zone {
+  display: grid;
+  place-items: center;
+  min-height: 255px;
+  border: 2px dashed #aeb6ad;
+  border-radius: 8px;
+  background: #fbfbf8;
+  text-align: center;
+  padding: 28px;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.drop-zone.dragging {
+  border-color: #1f6f61;
+  background: #eef7f4;
+}
+
+.drop-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #e1eee9;
+  color: #1f6f61;
+  font-size: 36px;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.drop-zone p {
+  color: #6b6d63;
+  margin: 8px 0 18px;
+}
+
+.queue-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 22px 0 12px;
+}
+
+.queue-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.queue {
+  display: grid;
+  gap: 10px;
+}
+
+.empty-state {
+  border: 1px solid #e3e4dc;
+  border-radius: 8px;
+  padding: 28px;
+  color: #777970;
+  text-align: center;
+}
+
+.job {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 14px;
+  align-items: center;
+  border: 1px solid #e1e2da;
+  border-left: 5px solid #b8bbb1;
+  border-radius: 8px;
+  padding: 12px;
+  background: #fff;
+}
+
+.job.uploading,
+.job.upload-url,
+.job.polling,
+.job.downloading {
+  border-left-color: #2c79a5;
+}
+
+.job.done {
+  border-left-color: #1f7a4f;
+}
+
+.job.failed {
+  border-left-color: #b94843;
+}
+
+.file-name {
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-path {
+  color: #74766d;
+  font-size: 12px;
+  margin-top: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.job-meta {
+  display: grid;
+  gap: 3px;
+  min-width: 132px;
+  text-align: right;
+  color: #6d6f66;
+  font-size: 13px;
+}
+
+.result-files {
+  margin-top: 5px;
+  color: #1f6f61;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.state-label {
+  color: #252621;
+  font-weight: 700;
+}
+
+.open-folder {
+  white-space: nowrap;
+}
+
+.settings-panel {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  position: sticky;
+  top: 18px;
+}
+
+.settings-panel label {
+  display: grid;
+  gap: 7px;
+  color: #4b4d45;
+  font-size: 14px;
+}
+
+input,
+select {
+  width: 100%;
+  border: 1px solid #cfd1c8;
+  border-radius: 6px;
+  background: #fff;
+  color: #252621;
+  padding: 9px 10px;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #cde5dc;
+  border-color: #1f6f61;
+}
+
+.path-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+
+.checks {
+  display: grid;
+  gap: 8px;
+  border: 1px solid #e1e2da;
+  border-radius: 8px;
+  padding: 11px;
+}
+
+.checks label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checks input {
+  width: auto;
+}
+
+.export-options {
+  margin: 0;
+  min-width: 0;
+}
+
+.export-options legend {
+  padding: 0 5px;
+  color: #4b4d45;
+  font-size: 14px;
+}
+
+.setting-help {
+  color: #74766d;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.wide {
+  width: 100%;
+}
+
+.toast {
+  min-height: 22px;
+  color: #1f6f61;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.toast.show {
+  opacity: 1;
+}
+
+@media (max-width: 920px) {
+  .app-shell {
+    padding: 18px;
+  }
+
+  .topbar,
+  .layout {
+    display: grid;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-panel {
+    position: static;
+  }
+
+  .job {
+    grid-template-columns: 1fr;
+  }
+
+  .job-meta {
+    text-align: left;
+  }
+}

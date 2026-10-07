@@ -1,0 +1,40 @@
+{
+  "name": "mineru-one-click",
+  "version": "0.1.0",
+  "description": "A Windows desktop front-end for one-click MinerU document recognition.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "keywords": [
+    "mineru",
+    "pdf",
+    "markdown",
+    "electron"
+  ],
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "jszip": "^3.10.1"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.local.mineru.oneclick",
+    "productName": "MinerU一键识别",
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  }
+}
